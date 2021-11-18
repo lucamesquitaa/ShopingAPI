@@ -6986,11 +6986,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\luca.mesquita\\Shoping\\Shoping.csproj",
+      "projectUniqueName": "C:\\Users\\luca.mesquita\\Desktop\\shop\\Shoping.csproj",
       "projectName": "Shoping",
-      "projectPath": "C:\\Users\\luca.mesquita\\Shoping\\Shoping.csproj",
+      "projectPath": "C:\\Users\\luca.mesquita\\Desktop\\shop\\Shoping.csproj",
       "packagesPath": "C:\\Users\\luca.mesquita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\luca.mesquita\\Shoping\\obj\\",
+      "outputPath": "C:\\Users\\luca.mesquita\\Desktop\\shop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\luca.mesquita\\AppData\\Roaming\\NuGet\\NuGet.Config",

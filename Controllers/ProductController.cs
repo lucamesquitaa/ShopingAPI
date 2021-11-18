@@ -6,7 +6,6 @@ using Backoffice.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 
 namespace Shoping.Controllers
 {
@@ -15,7 +14,6 @@ namespace Shoping.Controllers
     {
         [HttpGet]
         [Route("")]
-        [AllowAnonymous]
         public async Task<ActionResult<List<Product>>> Get([FromServices] DataContext context)
         {
             var products = await context.Products.Include(x => x.Category).AsNoTracking().ToListAsync();
@@ -23,7 +21,6 @@ namespace Shoping.Controllers
         }
         [HttpGet]
         [Route("{id:int}")]
-        [AllowAnonymous]
         public async Task<ActionResult<List<Product>>> GetById([FromServices] DataContext context, int id)
         {
             var product = await context.Products.Include(x => x.Category).AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
@@ -31,7 +28,6 @@ namespace Shoping.Controllers
         }
         [HttpGet]
         [Route("categories/{id:int}")]
-        [AllowAnonymous]
         public async Task<ActionResult<List<Product>>> GetByCategory([FromServices] DataContext context, int id)
         {
             var products = await context.Products.Include(x => x.Category).AsNoTracking().Where(x => x.CategoryId == id).ToListAsync();
@@ -40,7 +36,6 @@ namespace Shoping.Controllers
 
         [HttpPost]
         [Route("")]
-        [Authorize(Roles = "employee")]
         public async Task<ActionResult<Product>> Post(
         [FromBody] Product model,
         [FromServices] DataContext context
@@ -65,7 +60,6 @@ namespace Shoping.Controllers
         }
         [HttpPut]
         [Route("{id:int}")]
-        [Authorize(Roles = "employee")]
         public async Task<ActionResult<Product>> Put(
         int id,
         [FromBody] Product model,
@@ -100,7 +94,6 @@ namespace Shoping.Controllers
 
         [HttpDelete]
         [Route("{id:int}")]
-        [Authorize(Roles = "employee")]
         public async Task<ActionResult<Product>> Delete(
             int id,
             [FromServices] DataContext context)
